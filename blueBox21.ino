@@ -356,12 +356,12 @@ void rotatelive_block(){
     int newY = live_block.points[2].y;
              
     if(live_block.points[1].y == live_block.points[3].y){
-      live_block.points[3].x = newX + 1;
-      live_block.points[3].y = newY - 1;
+      live_block.points[3].x = live_block.points[3].x + 2;
+      live_block.points[1].y = live_block.points[1].y - 2;
     }
-    else if(live_block.points[0].x == live_block.points[3].x){
-      live_block.points[3].x = newX - 1;
-      live_block.points[3].y = newY + 1;
+    else{
+      live_block.points[3].x = live_block.points[3].x - 2;
+      live_block.points[1].y = live_block.points[1].y + 2;
     }
   }
 }
@@ -572,7 +572,7 @@ void loop(){
     move_live_block_down();
   }
   if(loop_counter == 1100){
-    clear_bottom_chunck();
+    //clear_bottom_chunck();
     loop_counter = 0;            
   }
   getAction();
